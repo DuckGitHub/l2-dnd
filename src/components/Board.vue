@@ -1,22 +1,21 @@
 <template lang="html">
   <div class="board" :id="id" @dragover.prevent @drop.prevent="drop">
-    <slot/>
+    <slot />
   </div>
 </template>
 
 <script>
 export default {
-  props: ['id'],
+  props: ["id"],
   methods: {
     drop: e => {
-      const card_id = e.dataTransfer.getData('card_id');
+      const card_id = e.dataTransfer.getData("card_id");
       const card = document.getElementById(card_id);
       card.style.display = "block";
       e.target.appendChild(card);
     }
   }
-}
+};
 </script>
 
-<style lang="css" scoped>
-</style>
+<style lang="css" scoped></style>
